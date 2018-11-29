@@ -32,10 +32,6 @@ class Swatches {
       })
       return colors;
     }
-
-    // toggleLock(event) {
-    //   event.target.closest('.swatch').classList.toggle('locked')
-    // }
   }
   
   const palette = new Swatches;
@@ -45,7 +41,9 @@ class Swatches {
     palette.generateColors();
   })
   
-  document.querySelector('.color-swatches').addEventListener('click', function(e) {
+  
+  const toggleLock = (e) => {
     e.preventDefault();
     event.target.closest('.swatch').classList.toggle('locked')
-  })
+  }
+  document.querySelector('.color-swatches').addEventListener('click', toggleLock)
