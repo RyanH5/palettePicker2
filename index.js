@@ -8,6 +8,7 @@ class Swatches {
      'color5': { color: '', locked: false},
      'color6': { color: '', locked: false}
    }
+   this.generateColors = this.generateColors.bind(this)
  }
  
    getRandomColor() {
@@ -19,12 +20,8 @@ class Swatches {
       }
       return colors
     }
-  
-  // window.onload = function() {
-    //   generateColors()
-    // };
     
-    generateColors (){
+    generateColors() {
       console.log(this.hexColors);
       const colors = Object.keys(this.hexColors).map(swatch => {
         if (!this.hexColors[swatch].locked){
@@ -35,9 +32,15 @@ class Swatches {
       })
       return colors;
     }
+
+    toggleLock() {
+
+    }
   }
   
   const palette = new Swatches;
   palette.generateColors();
-
-  // document.querySelector('.palette--generator-btn').addEventListener('click', Swatches.getRandomColors)
+  document.querySelector('.palette--generator-btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    palette.generateColors();
+  })
