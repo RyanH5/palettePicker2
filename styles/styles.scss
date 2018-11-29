@@ -19,10 +19,21 @@ body {
   }
   .save--palette-form{
     width: 300px;
+    margin: 0 auto;
   }
   .palette--generator-btn{
     display: block;
     margin: 0 auto;
+  }
+  .color-swatches {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .swatch {
+    display: inline-block;
+    border: 1px #000 solid;
+    height: 20rem;
+    width: 19.65%;
   }
 }
 
