@@ -15,10 +15,19 @@ body {
   .palette .title {
     display: block; }
   .palette .save--palette-form {
-    width: 300px; }
+    width: 300px;
+    margin: 0 auto; }
   .palette .palette--generator-btn {
     display: block;
     margin: 0 auto; }
+  .palette .color-swatches {
+    width: 80%;
+    margin: 0 auto; }
+  .palette .swatch {
+    display: inline-block;
+    border: 1px #000 solid;
+    height: 20rem;
+    width: 19.65%; }
 
 hr {
   width: calc(100% - 2rem);
