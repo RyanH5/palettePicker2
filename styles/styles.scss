@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh
+}
+
+.palette {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 1rem 0 3rem;
+  .title { 
+    display: block;
+  }
+  .save--palette-form{
+    width: 300px;
+  }
+  .palette--generator-btn{
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+hr {
+  width: calc(100% - 2rem);
+  margin: 0 auto;
+}
+
+.projects {
+   display: flex;
+   justify-content: center;
+   margin: 3rem 0;
+   form label {
+     display: block;
+   }
+}
