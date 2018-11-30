@@ -1,12 +1,12 @@
 class Swatches {
  constructor(){
    this.hexColors = {
-     'color1': { color: '', locked: false},
-     'color2': { color: '', locked: false},
-     'color3': { color: '', locked: false},
-     'color4': { color: '', locked: false},
-     'color5': { color: '', locked: false},
-     'color6': { color: '', locked: false}
+     'swatch1': { color: '', locked: false},
+     'swatch2': { color: '', locked: false},
+     'swatch3': { color: '', locked: false},
+     'swatch4': { color: '', locked: false},
+     'swatch5': { color: '', locked: false},
+     'swatch6': { color: '', locked: false}
    }
    this.generateColors = this.generateColors.bind(this)
  }
@@ -44,6 +44,8 @@ class Swatches {
   
   const toggleLock = (e) => {
     e.preventDefault();
-    event.target.closest('.swatch').classList.toggle('locked')
+    console.log('EVENT', event.target.id)
+    event.target.closest('.swatch').classList.toggle('locked');
+    palette.hexColors[event.target.id].locked = !palette.hexColors[event.target.id].locked
   }
   document.querySelector('.color-swatches').addEventListener('click', toggleLock)
