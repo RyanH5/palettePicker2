@@ -46,6 +46,11 @@ class Swatches {
     e.preventDefault();
     console.log('EVENT', event.target.id)
     event.target.closest('.swatch').classList.toggle('locked');
-    palette.hexColors[event.target.id].locked = !palette.hexColors[event.target.id].locked
+    var color = event.target.id;
+    if (!event.target.id) {
+      color = event.target.closest('.swatch').id
+    }
+    palette.hexColors[color].locked = !palette.hexColors[color].locked
+    debugger;
   }
   document.querySelector('.color-swatches').addEventListener('click', toggleLock)
