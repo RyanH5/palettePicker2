@@ -36,6 +36,7 @@ class Swatches {
   
   const palette = new Swatches;
   palette.generateColors();
+
   document.querySelector('.palette--generator-btn').addEventListener('click', function(e) {
     e.preventDefault();
     palette.generateColors();
@@ -51,6 +52,23 @@ class Swatches {
       color = event.target.closest('.swatch').id
     }
     palette.hexColors[color].locked = !palette.hexColors[color].locked
-    debugger;
+    toggleLockText(e);
   }
+
+  const toggleLockText = (e) => {
+    if(e.target.childElementCount) {
+      if(e.target.firstElementChild.innerText === 'UNLOCKED') {
+        e.target.firstElementChild.innerText = 'LOCKED'
+      } else {
+        e.target.firstElementChild.innerText = 'UNLOCKED'
+      }
+    } else {
+      if(e.target.innerText === 'UNLOCKED') {
+        e.target.innerText = 'LOCKED'
+      } else {
+        e.target.innerText = 'UNLOCKED'
+      }
+    }
+  }
+
   document.querySelector('.color-swatches').addEventListener('click', toggleLock)
