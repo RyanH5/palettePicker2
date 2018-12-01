@@ -12,7 +12,6 @@ class Swatches {
  }
  
    getRandomColor() {
-    console.log('click')     
     let colors = '#';
     let chars = "0123456789abcdef";
     for (let i = 0; i < 6; i++) {
@@ -22,7 +21,6 @@ class Swatches {
     }
     
     generateColors() {
-      console.log(this.hexColors);
       const colors = Object.keys(this.hexColors).map(swatch => {
         if (!this.hexColors[swatch].locked){
           this.hexColors[swatch].color = this.getRandomColor();
@@ -42,10 +40,8 @@ class Swatches {
     palette.generateColors();
   })
   
-  
   const toggleLock = (e) => {
     e.preventDefault();
-    console.log('EVENT', event.target.id)
     event.target.closest('.swatch').classList.toggle('locked');
     var color = event.target.id;
     if (!event.target.id) {
@@ -54,6 +50,8 @@ class Swatches {
     palette.hexColors[color].locked = !palette.hexColors[color].locked
     toggleLockText(e);
   }
+
+  document.querySelector('.color-swatches').addEventListener('click', toggleLock)
 
   const toggleLockText = (e) => {
     if(e.target.childElementCount) {
@@ -71,4 +69,3 @@ class Swatches {
     }
   }
 
-  document.querySelector('.color-swatches').addEventListener('click', toggleLock)
