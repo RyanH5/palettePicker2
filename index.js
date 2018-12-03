@@ -27,7 +27,9 @@ class Swatches {
           this.hexColors[swatch].color = this.hexColors[swatch].color;
           console.log('TWO')
         }
-        document.getElementById(swatch).style.backgroundColor = this.hexColors[swatch].color
+        document.getElementById(swatch).style.backgroundColor = this.hexColors[swatch].color;
+        document.getElementById(swatch).lastElementChild.innerText = this.hexColors[swatch].color;
+
       })
       return colors;
     }
