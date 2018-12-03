@@ -1,18 +1,17 @@
 class Swatches {
  constructor(){
    this.hexColors = {
-     'color1': { color: '', locked: false},
-     'color2': { color: '', locked: false},
-     'color3': { color: '', locked: false},
-     'color4': { color: '', locked: false},
-     'color5': { color: '', locked: false},
-     'color6': { color: '', locked: false}
+     'swatch1': { color: '', locked: false},
+     'swatch2': { color: '', locked: false},
+     'swatch3': { color: '', locked: false},
+     'swatch4': { color: '', locked: false},
+     'swatch5': { color: '', locked: false},
+     'swatch6': { color: '', locked: false}
    }
    this.generateColors = this.generateColors.bind(this)
  }
  
    getRandomColor() {
-    console.log('click')     
     let colors = '#';
     let chars = "0123456789abcdef";
     for (let i = 0; i < 6; i++) {
@@ -22,7 +21,6 @@ class Swatches {
     }
     
     generateColors() {
-      console.log(this.hexColors);
       const colors = Object.keys(this.hexColors).map(swatch => {
         if (!this.hexColors[swatch].locked){
           this.hexColors[swatch].color = this.getRandomColor();
@@ -32,20 +30,42 @@ class Swatches {
       })
       return colors;
     }
-
-    // toggleLock(event) {
-    //   event.target.closest('.swatch').classList.toggle('locked')
-    // }
   }
   
   const palette = new Swatches;
   palette.generateColors();
+
   document.querySelector('.palette--generator-btn').addEventListener('click', function(e) {
     e.preventDefault();
     palette.generateColors();
   })
   
-  document.querySelector('.color-swatches').addEventListener('click', function(e) {
+  const toggleLock = (e) => {
     e.preventDefault();
-    event.target.closest('.swatch').classList.toggle('locked')
-  })
+    event.target.closest('.swatch').classList.toggle('locked');
+    var color = event.target.id;
+    if (!event.target.id) {
+      color = event.target.closest('.swatch').id
+    }
+    palette.hexColors[color].locked = !palette.hexColors[color].locked
+    toggleLockText(e);
+  }
+
+  document.querySelector('.color-swatches').addEventListener('click', toggleLock)
+
+  const toggleLockText = (e) => {
+    if(e.target.childElementCount) {
+      if(e.target.firstElementChild.innerText === 'UNLOCKED') {
+        e.target.firstElementChild.innerText = 'LOCKED'
+      } else {
+        e.target.firstElementChild.innerText = 'UNLOCKED'
+      }
+    } else {
+      if(e.target.innerText === 'UNLOCKED') {
+        e.target.innerText = 'LOCKED'
+      } else {
+        e.target.innerText = 'UNLOCKED'
+      }
+    }
+  }
+
