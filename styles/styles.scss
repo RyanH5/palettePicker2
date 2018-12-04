@@ -7,6 +7,7 @@
 body {
   width: 100vw;
   height: 100vh;
+  background-color: rgb(251, 221, 97)
 }
 
 .palette {
@@ -14,39 +15,109 @@ body {
   align-items: center;
   flex-direction: column;
   margin: 1rem 0 3rem;
-  .title { 
-    display: block;
-  }
-  .save--palette-form{
-    width: 300px;
-    margin: 0 auto;
-  }
-  .palette--generator-btn{
-    display: block;
-    margin: 0 auto;
-  }
-  .color-swatches {
-    width: 80%;
-    margin: 0 auto;
-  }
-  .swatch {
-    display: inline-block;
-    border: 1px #000 solid;
-    height: 20rem;
-    width: 19.65%;
-  }
+}
+
+.palette .title {
+  display: block;
+  font-family: 'Permanent Marker', cursive;
+  color: rgb(47, 78, 43);
+  font-size: 3rem;
+}
+
+.palette .palette--generator-btn {
+  display: block;
+  margin: 0 auto 2.5rem;
+  background: rgb(47, 78, 43);
+  color: rgb(251, 221, 97);
+  padding: 7px 10px;
+  font-size: 1rem;
+  border-radius: 9px;
+  border: 2px solid transparent;
+}
+
+.palette .palette--generator-btn:hover {
+  background: rgb(251, 221, 97);
+  color: rgb(47, 78, 43);
+  font-size: 1rem;
+  border: 2px solid rgb(47, 78, 43);
+}
+
+.palette .save--palette-container {
+  margin: 0 auto;
+}
+
+.palette .color-swatches {
+  margin: 1rem 0;
+  display: flex;
+  width: 90vw;
+  justify-content: space-around;
+}
+
+.palette .swatch {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid rgb(47, 78, 43);
+  border-radius: 50%;
+  height: 8rem;
+  width: 8rem;
+}
+
+.palette .swatch .lock {
+  color: rgb(47, 78, 43);
+  font-family: 'Permanent Marker', cursive;
+  font-weight: lighter;
+}
+
+.palette h3 {
+  color: rgb(47, 78, 43);
+  pointer-events: none;
+}
+
+.save--palette-btn {
+  background: rgb(47, 78, 43);
+  color: rgb(251, 221, 97);
+  padding: 5px 9px;
+  font-size: 1rem;
+  border-radius: 0px 9px 9px 0px;
+  border: 2px solid transparent;
+  margin-left: -4px;
+}
+
+.save--palette-btn:hover {
+  background: rgb(251, 221, 97);
+  color: rgb(47, 78, 43);
+  font-size: 1rem;
+  border: 2px solid rgb(47, 78, 43);
+}
+
+select {
+  width: 150px;
+  height: 2rem;
+  padding: 5px 9px;
+  font-size: 1rem;
+}
+
+.new--palette-input {
+  height: 2rem;
+  padding: 5px 9px;
+  font-size: 1rem;
 }
 
 hr {
   width: calc(100% - 2rem);
   margin: 0 auto;
+  color: rgb(47, 78, 43);
+  border-top: 2px solid rgb(47, 78, 43)
 }
 
 .projects {
-   display: flex;
-   justify-content: center;
-   margin: 3rem 0;
-   form label {
-     display: block;
-   }
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0;
+}
+
+.projects form label {
+  display: block;
 }
