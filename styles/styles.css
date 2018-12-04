@@ -46,6 +46,7 @@ body {
     justify-content: space-around;}
 .palette .swatch {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border: 3px solid rgb(47, 78, 43);
@@ -57,6 +58,10 @@ body {
   color: rgb(47, 78, 43);
   font-family: 'Permanent Marker', cursive;
   font-weight: lighter;
+}
+.palette h3 {
+  color: rgb(47, 78, 43);
+  pointer-events: none;
 }
 .save--palette-btn {
   background: rgb(47, 78, 43);
