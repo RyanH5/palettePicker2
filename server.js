@@ -3,6 +3,9 @@ const app = express();
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
 const database = require('knex')(configuration);
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
 
 app.set('port', process.env.PORT || 3000);
 
@@ -32,4 +35,19 @@ app.get('/api/v1/palettes', (request, response) => {
   .catch((error) => {
     response.status(500).json({error})
     })
+})
+
+app.post('/api/v1/projects', (request, response) => {
+  const project = request.body;
+  console.log(request.body);
+
+  //*set required parameters here
+  
+  database('projects').insert(project, 'id')
+    .then(project => {
+      return response.status(201).json({id: project[0]})
+    })
+    .catch(error => {
+      response.status(500).json({error});
+    });
 })
