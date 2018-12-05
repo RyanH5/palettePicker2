@@ -79,7 +79,11 @@ class Swatches {
   }
 
   const appendNewProject = (newProjTitle) => {
-    document.querySelector('.projects-container').append(`<div class="project"><h2>${newProjTitle}</h2></div>`)
+    const parent = document.createElement('div');
+    const child = document.createElement('h3');
+    child.innerText = newProjTitle;
+    parent.append(child);
+    document.querySelector('.projects-container').append(parent);
   }
 
   document.querySelector('.new--project-form').addEventListener('submit', saveProject)
