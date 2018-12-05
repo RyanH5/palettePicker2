@@ -65,3 +65,15 @@ class Swatches {
     console.log(palette)
   }
 
+  
+  const saveProject = (e) => {
+    e.preventDefault();
+    let newProjTitle = document.querySelector('.new--project-input');
+    const select = document.querySelector('.project-dropdown');
+    const option = document.createElement('option');
+    option.text = newProjTitle.value;
+    select.add(option);
+    newProjTitle.value = '';
+  }
+
+  document.querySelector('.save--project-btn').addEventListener('click', saveProject)
