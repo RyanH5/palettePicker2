@@ -25,11 +25,9 @@ class Swatches {
           this.hexColors[swatch].color = this.getRandomColor();
         } else {
           this.hexColors[swatch].color = this.hexColors[swatch].color;
-          console.log('TWO')
         }
         document.getElementById(swatch).style.backgroundColor = this.hexColors[swatch].color;
         document.getElementById(swatch).lastElementChild.innerText = this.hexColors[swatch].color;
-
       })
       return colors;
     }
@@ -44,7 +42,6 @@ class Swatches {
   })
   
   const toggleLock = (e) => {
-    console.log('click')
     e.preventDefault();
     event.target.closest('.swatch').classList.toggle('locked');
     var color = event.target.id;
@@ -63,12 +60,6 @@ class Swatches {
         e.target.firstElementChild.innerText = 'LOCKED'
       } else {
         e.target.firstElementChild.innerText = 'UNLOCKED'
-      }
-    } else {
-      if(e.target.innerText === 'UNLOCKED') {
-        e.target.innerText = 'LOCKED'
-      } else {
-        e.target.innerText = 'UNLOCKED'
       }
     }
     console.log(palette)
