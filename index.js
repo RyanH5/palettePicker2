@@ -73,7 +73,22 @@ class Swatches {
     const option = document.createElement('option');
     option.text = newProjTitle.value;
     select.add(option);
+    postProject(newProjTitle.value);
     newProjTitle.value = '';
   }
 
   document.querySelector('.save--project-btn').addEventListener('click', saveProject)
+
+  const postProject = async (projName) => {
+    const url = 'http://localhost:3000/api/v1/projects';
+    const options = {
+      method: 'POST', 
+      body: JSON.stringify({project_name: projName}),
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    }
+    const response = await fetch(url, options);
+    const result = await response.json();
+    return result;
+  }
