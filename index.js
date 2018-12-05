@@ -74,10 +74,15 @@ class Swatches {
     option.text = newProjTitle.value;
     select.add(option);
     postProject(newProjTitle.value);
+    appendNewProject(newProjTitle.value)
     newProjTitle.value = '';
   }
 
-  document.querySelector('.save--project-btn').addEventListener('click', saveProject)
+  const appendNewProject = (newProjTitle) => {
+    document.querySelector('.projects-container').append(`<div class="project"><h2>${newProjTitle}</h2></div>`)
+  }
+
+  document.querySelector('.new--project-form').addEventListener('submit', saveProject)
 
   const postProject = async (projName) => {
     const url = 'http://localhost:3000/api/v1/projects';
