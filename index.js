@@ -35,7 +35,7 @@ class Swatches {
   
   const palette = new Swatches;
   palette.generateColors();
-
+  
   document.querySelector('.palette--generator-btn').addEventListener('click', function(e) {
     e.preventDefault();
     palette.generateColors();
@@ -62,7 +62,7 @@ class Swatches {
         e.target.firstElementChild.innerText = 'UNLOCKED'
       }
     }
-    console.log(palette)
+    // console.log(palette)
   }
 
   
@@ -76,16 +76,34 @@ class Swatches {
     postProject(newProjTitle.value);
     appendNewProject(newProjTitle.value)
     newProjTitle.value = '';
+    disableProjButton();
   }
 
   const appendNewProject = (newProjTitle) => {
+    const input = document.querySelector('.new--project-input').value;
+    const button = document.querySelector('.save--project-btn');
     const parent = document.createElement('div');
     const child = document.createElement('h3');
     child.innerText = newProjTitle;
     parent.append(child);
     document.querySelector('.projects-container').append(parent);
   }
+  
+  const disableProjButton = () => {
+    console.log('FUCK!')
+    if (document.querySelector('.new--project-input').value === '') {
+      // console.log('val', document.querySelector('.new--project-input').value)
+      console.log(document.querySelector('.save--project-btn').disabled)
+      document.querySelector('.save--project-btn').disabled = true;
+    } else {
+      document.querySelector('.save--project-btn').disabled = false
+    }
+  }
+  disableProjButton();
 
+
+  document.querySelector('.new--project-input').addEventListener('keyup', disableProjButton)
+  
   document.querySelector('.new--project-form').addEventListener('submit', saveProject)
 
   const postProject = async (projName) => {
